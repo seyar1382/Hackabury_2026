@@ -1,0 +1,103 @@
+/* ====== general styles ====== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(rgb(14, 0, 75), rgb(2, 2, 111));
+  height: 100vh;
+  color: white;
+}
+
+/* ====== home page styles ====== */
+
+.title {
+  text-align: center;
+  padding: 40px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container input {
+  padding: 10px;
+  width: 300px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 40px;
+}
+
+.pass {
+  padding: 10px 20px;
+  background-color: rgb(100, 100, 233);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+.pass:hover {
+  background-color: rgb(4, 4, 79);
+}
+
+.pass-preview {
+  display: flex;
+  gap: 10px;
+  flex-direction: column-reverse;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pass-js {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 70%;
+  background-color: rgb(217, 213, 213);
+  height: 400px;
+  color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.pass-logo {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
+
+.color-picker {
+  width: 100px;
+}
+.footer {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+}
