@@ -32,6 +32,10 @@ def fetch_icon(URL):
     html_short = html[start:]
     end = html_short.find(">")
     icon = html_short[:end]
+    start = icon.find("href=")
+    url = icon[start+6:]
+    end = url.find('"')
+    icon = url[:end]
     print(icon)
     return icon
 
