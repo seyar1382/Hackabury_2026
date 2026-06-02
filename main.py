@@ -8,7 +8,7 @@ def webview_start():
     webview = Webview()
     webview.title = "Wallet Pass Creator"
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    html_path = os.path.join(current_dir, 'website\\index.html')
+    html_path = os.path.join(current_dir, 'index.html')
     webview.navigate(f"file://{html_path}")
 
     # bind python to java script
@@ -47,12 +47,11 @@ def fetch_description(URL):
     end = short_description.find(">")
     shorted_short_description = short_description[start+9:end-1]
     print(shorted_short_description)
-    return description
+    return shorted_short_description
     
 def fetch_html_file(URL):
     response = requests.get(URL)
     html = response.text
     return html
 
-internal_browser = threading.Thread(target=webview_start)
-internal_browser.start()
+webview_start()

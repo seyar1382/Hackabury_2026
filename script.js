@@ -10,16 +10,17 @@ button.addEventListener("click", () => {
   user_url = document.getElementById("url_input").value;
   console.log(user_url);
   generatePass(user_url);
+  metadata(user_url);
   // fetchMetadata(user_url);
 });
 
 const passPreview = document.querySelector(".pass-preview");
 
 function generatePass(url) {
-  const textElement = document.createElement("p");
-  textElement.textContent = "Creating pass for: " + url;
-  passPreview.prepend(textElement);
-  textElement.classList.add("pass-content");
+  // const textElement = document.createElement("p");
+  // textElement.textContent = "Creating pass for: " + url;
+  // passPreview.prepend(textElement);
+  // textElement.classList.add("pass-content");
 
   const confirmButton = document.querySelector(".download");
   confirmButton.url = "https://romax.co.uk"; // Store the URL in a custom property of the button
@@ -52,17 +53,31 @@ colorPicker.addEventListener("input", (event) => {
   passContent.style.backgroundColor = event.target.value;
 });
 
-const logo = document.createElement("img");
-logo.src = "images/cccu.webp"; // Replace with the actual path to your logo image
-logo.alt = "Logo";
-logo.classList.add("pass-logo");
-passContent.appendChild(logo);
+
+async function metadata(url) {
+
+  let title2 = await fetch_title(url);
+  let icon = await fetch_icon(url);
+  let description2 = await fetch_description(url);
+  
+  const logo = document.createElement("img");
+  logo.src = icon; // Replace with the actual path to your logo image
+  logo.alt = "Logo";
+  passContent.appendChild(logo);
+
+  const title = document.createElement("h1");
+  title.textContent = title2;
+  passContent.appendChild(title);
+
+  const description = document.createElement("p");
+  description.textContent = description2;
+  passContent.appendChild(description);
+
+  
+}
+
 
 // const passContent = document.querySelector(".pass-js");
 // passContent.classList.add("pass-content");
-async function fetchMetadata(url) {
-  fetch_title(url);
-  fetch_icon(url);
-  fetch_description(url);
-  fetch_html_file(url);
-}
+
+

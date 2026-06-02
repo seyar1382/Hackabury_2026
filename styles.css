@@ -120,3 +120,17 @@ body {
   width: 100%;
   text-align: center;
 }
+
+.pass-js img {
+  width: 100px;
+}
+
+.pass-js p {
+  max-width: 200px;
+}
+
+
+
+.pass-content {
+  max-width: 300px;
+}
