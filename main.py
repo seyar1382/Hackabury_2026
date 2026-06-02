@@ -8,7 +8,7 @@ def webview_start():
     webview = Webview()
     webview.title = "Wallet Pass Creator"
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    html_path = os.path.join(current_dir, 'website\\index.html')
+    html_path = os.path.join(current_dir, 'index.html')
     webview.navigate(f"file://{html_path}")
 
     # bind python to java script
