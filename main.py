@@ -8,13 +8,13 @@ def webview_start():
     webview = Webview()
     webview.title = "Wallet Pass Creator"
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    html_path = os.path.join(current_dir, 'index.html')
+    html_path = os.path.join(current_dir, 'website\\index.html')
     webview.navigate(f"file://{html_path}")
 
     # bind python to java script
     webview.bind("fetch_title", fetch_title)
     webview.bind("fetch_icon", fetch_icon)
-    webview.bind("fetch_website", fetch_description)
+    webview.bind("fetch_description", fetch_description)
 
     webview.run()
 
@@ -23,7 +23,6 @@ def fetch_title(URL):
     start = html.find("<title>")
     end = html.find("</title>")
     title = html[start+7:end]
-    print(title)
     return title
 
 def fetch_icon(URL):
@@ -36,14 +35,18 @@ def fetch_icon(URL):
     url = icon[start+6:]
     end = url.find('"')
     icon = url[:end]
-    print(icon)
     return icon
 
 def fetch_description(URL):
     html = fetch_html_file(URL)
-    start = html.find("<description>")
-    end = html.find("</description>")
-    description = html[start+7:end]
+    start = html.find('<meta')
+    description = html[start:]
+    start = description.find("description")
+    short_description = description[start:]
+    start = short_description.find("content")
+    end = short_description.find(">")
+    shorted_short_description = short_description[start+9:end-1]
+    print(shorted_short_description)
     return description
     
 def fetch_html_file(URL):
